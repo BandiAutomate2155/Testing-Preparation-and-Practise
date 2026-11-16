@@ -1,14 +1,18 @@
 const {test, expect} = require('@playwright/test'); // constant variable
+const { request } = require('node:http');
 
 test('Browser context Playwright Test', async ({browser})=>   // async function() ,  async ()=> , browser is a global fixture
 {
     // chrome - plugins / cookies 
     const context = await browser.newContext();
     const page = await context.newPage();
+    page.route('**/*.css',route=> route.abort());    /// Never abort .css files since it distrubs the automation executions
+    page.route('**/*.{jpg,png,jpeg}',route=> route.abort());
     const userName = page.locator("#username");
     const password = page.locator("[type='Password']");
     const signin = locator("#signINBtn");
     const carttittles = page.locator(".card-body a");
+    page.on('request', request=> console.log(request.url()));
     await page.goto("https://github.com/sriharidevops2155");
     //css type, fill --> From latest versions they depricated type, Also fill can clear if any default text preset in textfield too 
     await page.userName().fill("sriharibandi");
