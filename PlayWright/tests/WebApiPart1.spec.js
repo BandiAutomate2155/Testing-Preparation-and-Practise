@@ -10,7 +10,7 @@ let response;
 test.beforeAll( async ()=>  // => is know to be fat operator -- It will execute once once before all the tests get executed
 {
     const apiContext = await request.newContext();
-    const apiUtils = new ApiUtils(apiContext, LoginPayLoad);
+    const apiUtils = new Apiutils(apiContext, LoginPayLoad);
     response = await apiUtils.createOrder(orderPayLoad);
 
 });
