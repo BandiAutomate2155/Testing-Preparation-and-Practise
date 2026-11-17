@@ -24,4 +24,3 @@ test('Browser context Playwright Test', async ({page})=>   // async function() ,
     await page.getByText("PLACE ORDER").click();
     await expect(page.getByText("Thankyou for the Order.")).toBeVisible();
 }); 
-   

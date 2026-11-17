@@ -29,6 +29,7 @@ const config = ({
       headless : true,  // headless:true will disbale live browser , headless:flase -->  npx playwright test --headed - It will show browsers  
       screenshot: 'on',  // Screenshot on every step 
       trace: 'on',  // details logs 'retain-only-failure' - Generate the traces only on failure
+      // trace: 'retain-only-failure'
       actionTimeout: 10 * 1000,
       navigationTimeout: 30 * 1000, 
     },

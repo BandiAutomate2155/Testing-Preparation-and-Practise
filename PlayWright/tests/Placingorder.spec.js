@@ -41,7 +41,7 @@ test('Browser context Playwright Test', async ({page})=>   // async function() ,
             break;
         } 
     }
-    expect(page.locator(".user__name [type='text']").first()).toHaveText("sriharibandi@gmail.com")
+    expect(page.locator(".user__name [type='text']").first()).toHaveText("XYZZZZZ@gmail.com")
     await page.locator(".action__submit").click();
     await expect(page.locator("hero-primary").first()).toHaveText(" Thank you for the Order. ");
     const OrderID = await page.locator(".em-spacer-1 .ng-star-inserted").textContent();

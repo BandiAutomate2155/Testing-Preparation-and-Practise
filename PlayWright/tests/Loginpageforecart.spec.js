@@ -13,6 +13,7 @@ test('Browser context Playwright Test', async ({browser})=>   // async function(
     const signin = locator("#signINBtn");
     const carttittles = page.locator(".card-body a");
     page.on('request', request=> console.log(request.url()));
+    page.on('response', Response=> console.log(Response.url(), Response.status()));
     await page.goto("https://github.com/sriharidevops2155");
     //css type, fill --> From latest versions they depricated type, Also fill can clear if any default text preset in textfield too 
     await page.userName().fill("sriharibandi");
