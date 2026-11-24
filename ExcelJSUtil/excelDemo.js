@@ -1,6 +1,7 @@
 const ExcelJs = require('exceljs');
 
-async function excelTest() {    
+async function excelTest() 
+{    
 const workbook = new ExcelJs.Workbook();
 await workbook.xlxs.readFile("/Users/SriHari/downloads/excelDownloadSheet.xlxs") 
 const worksheet = workbook.getWorksheet('Sheet1');
@@ -11,7 +12,6 @@ worksheet.eachRow( (row,rowNumber) =>
         console.log(cell.value);
     })
 })
-
 }
 
 excelTest();

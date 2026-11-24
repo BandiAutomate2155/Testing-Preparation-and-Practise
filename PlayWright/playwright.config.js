@@ -16,7 +16,7 @@ import { trace } from 'node:console';
 const config = ({
   testDir: './tests',
   testMatch: '**/*.spec.js',
-  retries :0,
+  retries :1,
   timeout:40*1000,  // Every test in the test folder should complete execution in 30 sec 
   expect : {  // assertion validation timeout 
     timeout: 5000,

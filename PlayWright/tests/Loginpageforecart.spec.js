@@ -1,5 +1,4 @@
 const {test, expect} = require('@playwright/test'); // constant variable
-const { request } = require('node:http');
 
 test('Browser context Playwright Test', async ({browser})=>   // async function() ,  async ()=> , browser is a global fixture
 {
@@ -10,7 +9,7 @@ test('Browser context Playwright Test', async ({browser})=>   // async function(
     page.route('**/*.{jpg,png,jpeg}',route=> route.abort());
     const userName = page.locator("#username");
     const password = page.locator("[type='Password']");
-    const signin = locator("#signINBtn");
+    const signin = page.locator("#signINBtn");
     const carttittles = page.locator(".card-body a");
     page.on('request', request=> console.log(request.url()));
     page.on('response', Response=> console.log(Response.url(), Response.status()));

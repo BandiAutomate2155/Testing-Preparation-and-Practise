@@ -1,5 +1,8 @@
 const {test, expect} = require('@playwright/test')
 
+
+test.describe.configure({mode: 'parallel'});
+// test.describe.configure({mode: 'serial'});  if test run serial after every test pass then we should keet pet which mean above test have depencdy on below test  
 test("Popup Validations", async({page})=>   // async is mandetory if you have awaits in the test 
 {
  await page.goto("https://rahulshettyacademy.com/AutomationPractice/");

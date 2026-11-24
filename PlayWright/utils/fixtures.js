@@ -13,16 +13,18 @@ exports.customtest = base.test.extend(
             await page.locator("userPassword").fill("xyspassword");
             await page.locator("[value='Login']").click();
             await page.waitForLoadState('networkidle');
-            await use(page);
+            await use(page);  // Code after use will not execute which a Tear Down and it will execute only after entire test is done in fixturedemo.spec.js
+            await context.close();
         },
         createOrder: async ({}, use) => {
             const apiContext = await request.newContext();
             const apiUtils = new ApiUtils(apiContext, loginPayload);
             response = await ApiUtils.createOrder(OrderPayLoad);
             await use(response);
+            await apiContext.dispose();
         },
         testDataForOrder: {
             productName: 'ADIDAS ORIGINAL'
-            
+
         }
     });
